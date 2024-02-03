@@ -40,17 +40,13 @@ public class AccountController {
     @GetMapping()
     public List<AccountDto> getAllAccounts() {
         List<Account> accounts = accountService.getAllAccounts();
-        return accounts.stream()
-                .map(accountMapper::toDto)
-                .collect(Collectors.toList());
+        return accounts.stream().map(accountMapper::toDto).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}/messages")
     @ResponseBody
     public ResponseEntity<List<MessageDto>> findMessagesByAccountId(@PathVariable Integer id) {
         List<Message> messages = messageService.getAllAccountMessages(id);
-        return ResponseEntity.ok(messages.stream()
-                .map(messageMapper::toDto)
-                .collect(Collectors.toList()));
+        return ResponseEntity.ok(messages.stream().map(messageMapper::toDto).collect(Collectors.toList()));
     }
 }

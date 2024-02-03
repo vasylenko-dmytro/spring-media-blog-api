@@ -61,7 +61,8 @@ public class MessageController {
     private String updateFailMsg;
 
 
-    public MessageController(AccountService accountService, MessageService messageService, MessageMapper messageMapper) {
+    public MessageController(AccountService accountService, MessageService messageService,
+                             MessageMapper messageMapper) {
         this.accountService = accountService;
         this.messageService = messageService;
         this.messageMapper = messageMapper;
@@ -134,7 +135,8 @@ public class MessageController {
 
     @PatchMapping("/{id}")
     @ResponseBody
-    public ResponseEntity<Integer> updateMessage(@RequestBody MessageDto messageDto, @PathVariable Integer id) {
+    public ResponseEntity<Integer> updateMessage(@RequestBody MessageDto messageDto,
+                                                 @PathVariable Integer id) {
         Optional<Message> message = messageService.getMessageById(id);
         Message entity = messageMapper.toEntity(messageDto);
         if (entity.getMessage_text().isEmpty()) {
