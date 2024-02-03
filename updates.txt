@@ -1,0 +1,9 @@
+Libraries:
+    - java -> 17
+    - spring boot -> 3.2.2
+    - h2 -> 2.2.220
+
+Refactor:
+    - update javadocs
+    - update sql script
+    - add more lombok annotations
